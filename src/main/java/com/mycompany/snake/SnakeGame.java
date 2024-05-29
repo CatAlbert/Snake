@@ -14,7 +14,16 @@ public class SnakeGame extends javax.swing.JFrame {
      * Creates new form SnakeGame
      */
     public SnakeGame() {
+        //llamamos al configdialog para la dificultad
+        ConfigDialog configDialog = new ConfigDialog(this, true);
+        configDialog.setVisible(true);
         initComponents();
+        //Inicializamos el contador
+        board1.setScoreInterface(scoreBoard1);
+        setLocationRelativeTo(null);
+        
+        
+        
     }
 
     /**
@@ -27,6 +36,7 @@ public class SnakeGame extends javax.swing.JFrame {
     private void initComponents() {
 
         board1 = new com.mycompany.snake.Board();
+        scoreBoard1 = new com.mycompany.snake.ScoreBoard();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -34,25 +44,30 @@ public class SnakeGame extends javax.swing.JFrame {
         board1.setLayout(board1Layout);
         board1Layout.setHorizontalGroup(
             board1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 877, Short.MAX_VALUE)
+            .addGap(0, 911, Short.MAX_VALUE)
         );
         board1Layout.setVerticalGroup(
             board1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 408, Short.MAX_VALUE)
+            .addGap(0, 409, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(board1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(scoreBoard1, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(board1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(board1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(board1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scoreBoard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -95,5 +110,6 @@ public class SnakeGame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.mycompany.snake.Board board1;
+    private com.mycompany.snake.ScoreBoard scoreBoard1;
     // End of variables declaration//GEN-END:variables
 }
