@@ -38,6 +38,11 @@ public class ConfigDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lento", "Normal", "Rapido" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pequeño", "Normal", "Grande" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +124,23 @@ public class ConfigDialog extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        switch (jComboBox1.getSelectedIndex()) {
+            case 0: 
+                ConfigData.getInstance().setDeltaTime(1000);
+                break;
+            case 1:
+                ConfigData.getInstance().setDeltaTime(500);
+                break;
+            case 2:
+                ConfigData.getInstance().setDeltaTime(200);
+                break;
+
+            default:
+                throw new AssertionError();
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
